@@ -53,6 +53,9 @@
                 <li class="logged-out" style="display: none;">
                     <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
                 </li>
+                <li class="logged-in-out">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-contact">Contact</a>
+                </li>
                 </span>
             </ul>
         </div>
@@ -75,6 +78,28 @@
             <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
         </li>
     </ul>
+
+    <!-- CONTACT MODAL -->
+    <div id="modal-contact" class="modal">
+        <div class="modal-content">
+            <h4>Contact Us</h4><br />
+            <form id="contact-form">
+                <div class="input-field">
+                    <input type="text" id="contact-name" required />
+                    <label for="contact-name">Your Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="email" id="contact-email" required />
+                    <label for="contact-email">Email address</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="contact-message" required />
+                    <label for="contact-message">Your Message</label>
+                </div>
+                <button id="contactBtn" class="btn yellow darken-2 z-depth-0">Send</button>
+            </form>
+        </div>
+    </div>
     
     <!-- SIGN UP MODAL -->
     <div id="modal-signup" class="modal">
@@ -165,6 +190,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
     
     <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-analytics.js"></script>
@@ -176,14 +202,17 @@
             apiKey: "AIzaSyByDmU0v5g6qM_wwsGBeD6uDstHQ_aBNU0",
             authDomain: "gameguideztuto.firebaseapp.com",
             projectId: "gameguideztuto",
-            // storageBucket: "gameguideztuto.appspot.com",
-            // messagingSenderId: "106473452290",
+            storageBucket: "gameguideztuto.appspot.com",
+            messagingSenderId: "106473452290",
             appId: "1:106473452290:web:e319c3c003cb4b9550481b",
             measurementId: "G-VGLFXDZQXR"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+
+        // Database
+        const database = firebase.database();
 
         //make auth and firestore references
         const auth = firebase.auth();
