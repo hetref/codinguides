@@ -44,7 +44,7 @@ const setupGuides = (data) => {
 
         guideList.innerHTML = html;
     } else {
-        guideList.innerHTML = '<h4 class="center-align">Login to view coding guides</h4>';
+        guideList.innerHTML = `<h4 class="center-align">Login to view coding guides</h4>`;
     }    
 };
 
